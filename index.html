@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Language Quiz</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f9fb;
+      text-align: center;
+      margin: 50px;
+    }
+    .quiz-box {
+      background: white;
+      display: inline-block;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    button {
+      margin-top: 10px;
+      padding: 8px 16px;
+      border: none;
+      background-color: #4CAF50;
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="quiz-box">
+    <h2>Hindi is written in which script?</h2>
+    <form id="quizForm">
+      <label><input type="radio" name="answer" value="Devanagari"> Devanagari</label><br>
+      <label><input type="radio" name="answer" value="Tamil"> Tamil</label><br>
+      <label><input type="radio" name="answer" value="Telugu"> Telugu</label><br>
+      <label><input type="radio" name="answer" value="Punjabi"> Punjabi</label><br>
+      <label><input type="radio" name="answer" value="Bengali"> Bengali</label><br>
+      <button type="button" onclick="checkAnswer()">Submit</button>
+    </form>
+    <p id="result"></p>
+  </div>
+
+  <script>
+    function checkAnswer() {
+      const selected = document.querySelector('input[name="answer"]:checked');
+      const result = document.getElementById('result');
+      if (!selected) {
+        result.textContent = 'Please select an answer!';
+        result.style.color = 'orange';
+        return;
+      }
+      if (selected.value === 'Devanagari') {
+        result.textContent = '✅ Correct! Hindi is written in the Devanagari script.';
+        result.style.color = 'green';
+      } else {
+        result.textContent = '❌ Incorrect. The correct answer is Devanagari.';
+        result.style.color = 'red';
+      }
+    }
+  </script>
+
+</body>
+</html>
